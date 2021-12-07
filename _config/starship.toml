@@ -1,0 +1,33 @@
+# Inserts a blank line between shell prompts
+# 空行追加
+add_newline = true
+
+# タイムアウト時間
+scan_timeout = 1000
+command_timeout = 1000
+
+# "❯" 記号を "➜" 記号に置き換えます
+[character]                            # 設定しようとしているモジュールの名前は "character" です。
+#success_symbol = "[➜](bold green)"     # "success_symbol" セグメントが「太字の緑色」スタイルの "➜" に設定されています
+
+# success_symbol = "🙆‍♂️"
+# error_symbol = "🙅‍♀️"
+
+# success_symbol = "[→](bg:#0000cd fg:#ff1493)"
+# error_symbol = "[←](bg:#00ff00 fg:#4b0082)"
+
+success_symbol = "[▶](bold green)" # コマンド成功時
+error_symbol = "[▶](bold red)"    # コマンド失敗時
+
+# packageモジュールを無効にし、プロンプトから完全に隠します
+[package]
+disabled = true
+
+[username]
+style_user = "white bold"
+style_root = "black bold"
+format = "user: [$user]($style) "
+disabled = false
+
+[git_status]
+disabled=true
