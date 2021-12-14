@@ -14,53 +14,6 @@ nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 "----------------------------------------
-" vim-plug :
-" :PlugInstallを忘れずに
-" :PlugUpdate
-" :PlugClean
-"----------------------------------------
-
-call plug#begin('~/.vim/plugged')
-
-" ファイルオープンを便利に
-"Plug 'Shougo/unite.vim'
-
-" Unite.vimで最近使ったファイルを表示できるようにする
-"Plug 'Shougo/neomru.vim'
-
-" ファイルをtree表示してくれる
-Plug 'scrooloose/nerdtree'
-
-" Rails向けのコマンドを提供する
-Plug 'tpope/vim-rails'
-
-" Ruby向けにendを自動挿入してくれる
-Plug 'tpope/vim-endwise'
-
-" コメントON/OFFを手軽に実行
-"Shift+Vで対象の範囲を選択
-"Ctrl+-(コントロールキー+ハイフン)を2回押すだけで、その範囲をまとめてコメントアウト
-Plug 'tomtom/tcomment_vim'
-
-" シングルクオートとダブルクオートの入れ替え等
-" cs'" シングルクオートをダブルクオートに置換
-Plug 'tpope/vim-surround'
-
-call plug#end()
-
-" インデントに色を付けて見やすくする
-Plug 'nathanaelkane/vim-indent-guides'
-
-" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
-let g:indent_guides_enable_on_vim_startup = 1
-
-" ログファイルを色づけしてくれる
-Plug 'vim-scripts/AnsiEsc.vim'
-
-" 行末の半角スペースを可視化
-Plug 'bronson/vim-trailing-whitespace'
-
-"----------------------------------------
 " 汎用
 "----------------------------------------
 
@@ -163,9 +116,6 @@ set title
 " 行番号の表示
 set number
 
-" 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
-set smarttab
-
 " カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 
@@ -182,11 +132,11 @@ highlight LineNr ctermfg=darkyellow
 " インデント, Tab系
 "----------------------------------------
 
+" 自動インデント
+set autoindent
+
 " インデントはスマートインデント
 set smartindent
-
-" 改行時に前の行のインデントを継続する
-set autoindent
 
 " 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
 set smarttab
@@ -207,10 +157,76 @@ set tabstop=2
 set shiftwidth=2
 
 " コピペの行制御
-set paste
+"set paste
+
+" Turn off paste mode when leaving insert
+" https://archive.craftz.dog/blog.odoruinu.net/2014/01/29/how-to-turn-off-paste-mode-when-becoming-normal-mode-on-vim/index.html
+autocmd InsertLeave * set nopaste
 
 "----------------------------------------
-" unite.vimの設定 
+" vim-plug :
+" :PlugInstallを忘れずに
+" :PlugUpdate
+" :PlugClean
+"----------------------------------------
+
+call plug#begin('~/.vim/plugged')
+
+" ファイルオープンを便利に
+"Plug 'Shougo/unite.vim'
+
+" Unite.vimで最近使ったファイルを表示できるようにする
+"Plug 'Shougo/neomru.vim'
+
+" ファイルをtree表示してくれる
+Plug 'scrooloose/nerdtree'
+
+" Rails向けのコマンドを提供する
+Plug 'tpope/vim-rails'
+
+" Ruby向けにendを自動挿入してくれる
+Plug 'tpope/vim-endwise'
+
+" コメントON/OFFを手軽に実行
+"Shift+Vで対象の範囲を選択
+"Ctrl+-(コントロールキー+ハイフン)を2回押すだけで、その範囲をまとめてコメントアウト
+Plug 'tomtom/tcomment_vim'
+
+" シングルクオートとダブルクオートの入れ替え等
+" cs'" シングルクオートをダブルクオートに置換
+Plug 'tpope/vim-surround'
+
+" インデントに色を付けて見やすくする
+Plug 'nathanaelkane/vim-indent-guides'
+
+" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
+let g:indent_guides_enable_on_vim_startup = 1
+" 色の差分を1%に抑える
+let g:indent_guides_color_change_percent = 1
+" インデント部分のどれだけ分を背景色を変えるか指定 1文字に変更
+let g:indent_guides_guide_size = 1
+" 色を変更
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+" 可視化を行う階層を指定
+let g:indent_guides_start_level = 2
+" 無効にするファイル郡を指定
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+
+
+"Plug 'Yggdroot/indentLine'
+
+" ログファイルを色づけしてくれる
+Plug 'vim-scripts/AnsiEsc.vim'
+
+" 行末の半角スペースを可視化
+Plug 'bronson/vim-trailing-whitespace'
+
+call plug#end()
+
+"----------------------------------------
+" unite.vimの設定
 "----------------------------------------
 
 " 入力モードで開始する
@@ -268,7 +284,7 @@ function! s:GetHighlight(hi)
   return hl
 endfunction
 """"""""""""""""""""""""""""""
- 
+
 " http://inari.hatenablog.com/entry/2014/05/05/231307
 """"""""""""""""""""""""""""""
 " 全角スペースの表示
@@ -305,6 +321,3 @@ imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
 """"""""""""""""""""""""""""""
-
-
-

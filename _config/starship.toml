@@ -31,3 +31,9 @@ disabled = false
 
 [git_status]
 disabled=true
+
+# ディレクトリをフルパス表示
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+
