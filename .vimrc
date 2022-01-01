@@ -1,6 +1,6 @@
 
 "----------------------------------------
-" :source .vimrcで読み込み
+" :source ~/.vimrcで読み込み
 "----------------------------------------
 
 "----------------------------------------
@@ -28,6 +28,13 @@ set ambiwidth=double
 
 " エラーメッセージの表示時にビープを鳴らさない
 set noerrorbells
+
+" macのクリップボードにコピペ
+set clipboard=unnamed
+
+" 文字コードを正しく認識して、動作不良を起こさない
+set fileformats=unix,dos,mac
+set fileencodings=utf-8,sjis
 
 "----------------------------------------
 " 作成しないファイル
@@ -195,6 +202,12 @@ Plug 'tomtom/tcomment_vim'
 " シングルクオートとダブルクオートの入れ替え等
 " cs'" シングルクオートをダブルクオートに置換
 Plug 'tpope/vim-surround'
+
+" ダブルコーテーション→シングルコーテーション
+nmap ff <Plug>Csurround"'
+
+" " シングルコーテーション→ダブルコーテーション
+nmap tt <Plug>Csurround'"
 
 " インデントに色を付けて見やすくする
 Plug 'nathanaelkane/vim-indent-guides'
