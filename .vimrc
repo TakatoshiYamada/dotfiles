@@ -13,6 +13,15 @@ nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
+" 括弧
+imap { {}<LEFT>
+imap [ []<LEFT>
+imap ( ()<LEFT>
+
+" ペストモード
+nnoremap pt :set paste<CR>
+nnoremap np :set nopaste<CR>
+
 "----------------------------------------
 " 汎用
 "----------------------------------------
@@ -165,7 +174,8 @@ set tabstop=2
 set shiftwidth=2
 
 " コピペの行制御
-"set paste
+" 常時pasteモードにする
+set paste
 
 " Turn off paste mode when leaving insert
 " https://archive.craftz.dog/blog.odoruinu.net/2014/01/29/how-to-turn-off-paste-mode-when-becoming-normal-mode-on-vim/index.html
