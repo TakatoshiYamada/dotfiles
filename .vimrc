@@ -13,14 +13,22 @@ nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" 括弧
+" 補完
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
+imap < <><LEFT>
 
 " ペストモード
-nnoremap pt :set paste<CR>
-nnoremap np :set nopaste<CR>
+" なお、ptでpasteしてくれる
+nnoremap pa :set paste<CR>
+nnoremap npa :set nopaste<CR>
+
+nnoremap <C-]> g<C-]>
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 "----------------------------------------
 " 汎用
@@ -175,7 +183,8 @@ set shiftwidth=2
 
 " コピペの行制御
 " 常時pasteモードにする
-set paste
+" 明示的にすることに変更
+" set paste
 
 " Turn off paste mode when leaving insert
 " https://archive.craftz.dog/blog.odoruinu.net/2014/01/29/how-to-turn-off-paste-mode-when-becoming-normal-mode-on-vim/index.html
@@ -247,8 +256,14 @@ Plug 'vim-scripts/AnsiEsc.vim'
 " 行末の半角スペースを可視化
 Plug 'bronson/vim-trailing-whitespace'
 
-call plug#end()
+" lint/rubocop
+Plug 'dense-analysis/ale'
 
+" slim
+Plug 'slim-template/vim-slim'
+
+" - これより上に記述しないと正しくプラグインがインストールされない
+call plug#end()
 "----------------------------------------
 " unite.vimの設定
 "----------------------------------------
@@ -345,3 +360,12 @@ imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
 """"""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""
+" 永続的Undoを有効にする
+" 事前に mkdir -p ~/.vim/undoする必要がある
+""""""""""""""""""""""""""""""
+if has('persistent_undo')
+  set undodir=~/.vim/undo
+  set undofile
+endif

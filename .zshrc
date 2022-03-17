@@ -2,6 +2,9 @@
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
+# nodenv
+eval "$(nodenv init -)"
+
 # Starship
 eval "$(starship init zsh)"
 
