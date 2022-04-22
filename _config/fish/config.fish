@@ -22,7 +22,10 @@ function cd
     builtin cd $argv; and exa
 end
 
+set -gx CDPATH $CDPATH . ~ $HOME/projects
+
 # tmux
+# 拾い物
 function attach_tmux_session_if_needed
     set ID (tmux list-sessions)
     if test -z "$ID"

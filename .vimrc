@@ -234,19 +234,23 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup = 1
+
 " 色の差分を1%に抑える
 let g:indent_guides_color_change_percent = 1
+
 " インデント部分のどれだけ分を背景色を変えるか指定 1文字に変更
 let g:indent_guides_guide_size = 1
+
 " 色を変更
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
 " 可視化を行う階層を指定
 let g:indent_guides_start_level = 2
+
 " 無効にするファイル郡を指定
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-
 
 "Plug 'Yggdroot/indentLine'
 
@@ -258,6 +262,14 @@ Plug 'bronson/vim-trailing-whitespace'
 
 " lint/rubocop
 Plug 'dense-analysis/ale'
+
+let g:ale_linters = {
+\   'ruby': ['rubocop'],
+\}
+let g:ale_linters_explicit = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_fix_on_save = 1
 
 " slim
 Plug 'slim-template/vim-slim'

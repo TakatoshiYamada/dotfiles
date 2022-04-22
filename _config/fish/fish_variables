@@ -22,7 +22,9 @@ SETUVAR _fish_abbr_abs:abbr\x20\x2ds\x20\x7c\x20peco
 SETUVAR _fish_abbr_be:bundle\x20exec
 SETUVAR _fish_abbr_ber:bundle\x20exec\x20rails
 SETUVAR _fish_abbr_berc:bundle\x20exec\x20rails\x20console
+SETUVAR _fish_abbr_bercop:bundle\x20exec\x20rubocop
 SETUVAR _fish_abbr_bercs:bundle\x20exec\x20rails\x20console\x20\x2d\x2dsandbox
+SETUVAR _fish_abbr_berdb:bundle\x20exec\x20rails\x20db\x3a
 SETUVAR _fish_abbr_berdbc:bundle\x20exec\x20rails\x20dbconsole
 SETUVAR _fish_abbr_berdbm:bundle\x20exec\x20rails\x20db\x3amigrate
 SETUVAR _fish_abbr_berdbms:bundle\x20exec\x20rails\x20db\x3amigrate\x3astatus
@@ -36,6 +38,9 @@ SETUVAR _fish_abbr_bers:bundle\x20exec\x20rails\x20server
 SETUVAR _fish_abbr_bersl:bundle\x20exec\x20rspec\x20spec\x20\x3e\x20spec/log\x2etxt
 SETUVAR _fish_abbr_berss:bundle\x20exec\x20rspec\x20spec
 SETUVAR _fish_abbr_berssl:bundle\x20exec\x20rspec\x20spec\x20\x3e\x20spec/log\x2etxt
+SETUVAR _fish_abbr_bert:bundle\x20exec\x20rake\x20\x2dT
+SETUVAR _fish_abbr_berubocop:bundle\x20exec\x20rubocop
+SETUVAR _fish_abbr_beruco:bundle\x20exec\x20rubocop
 SETUVAR _fish_abbr_bi:bundle\x20install
 SETUVAR _fish_abbr_binit:bundle\x20init
 SETUVAR _fish_abbr_board:cd\x20/Users/yamadatakatoshi/Workspace/runteq/rails_sample/board_practice/board
@@ -56,6 +61,8 @@ SETUVAR _fish_abbr_cd_2D_:cd\x20\x2d
 SETUVAR _fish_abbr_cl:clear
 SETUVAR _fish_abbr_cpr:cp\x20\x2dr
 SETUVAR _fish_abbr_cr:code\x20\x2dr
+SETUVAR _fish_abbr_crt:crontab
+SETUVAR _fish_abbr_crtl:crontab\x20\x2dl
 SETUVAR _fish_abbr_d:docker
 SETUVAR _fish_abbr_db:docker\x20build
 SETUVAR _fish_abbr_dc:docker\x2dcompose
@@ -81,6 +88,7 @@ SETUVAR _fish_abbr_ex:exit
 SETUVAR _fish_abbr_fc:vim\x20\x7e/\x2econfig/fish/config\x2efish
 SETUVAR _fish_abbr_fi:find\x20\x2e\x20\x2dname
 SETUVAR _fish_abbr_ga:git\x20add
+SETUVAR _fish_abbr_ga_2E_:git\x20add\x20\x2e
 SETUVAR _fish_abbr_gb:git\x20branch
 SETUVAR _fish_abbr_gc:git\x20commit\x20\x2dm
 SETUVAR _fish_abbr_gc_2D_m:git\x20commit\x20\x2dm
@@ -101,11 +109,11 @@ SETUVAR _fish_abbr_gpushmain:git\x20push\x20origin\x20main
 SETUVAR _fish_abbr_gpushmaster:git\x20push\x20origin\x20master
 SETUVAR _fish_abbr_gr:git\x20remote
 SETUVAR _fish_abbr_grao:git\x20remote\x20add\x20origin
-SETUVAR _fish_abbr_grb:grep\x20\x2dr\x20binding\x20app/
 SETUVAR _fish_abbr_grba:grep\x20\x2dr\x20binding\x20app/
 SETUVAR _fish_abbr_grc:git\x20rebase\x20\x2d\x2dcontinue
 SETUVAR _fish_abbr_grih:git\x20rebase\x20\x2di\x20HEAD\x7e
 SETUVAR _fish_abbr_grr:grep\x20\x2dr
+SETUVAR _fish_abbr_grrb:grep\x20\x2dr\x20binding\x20app/
 SETUVAR _fish_abbr_grv:git\x20remote\x20\x2dv
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_hp:history\x20\x7c\x20peco
@@ -115,6 +123,7 @@ SETUVAR _fish_abbr_ll:exa\x20\x2dlaF
 SETUVAR _fish_abbr_ls:exa
 SETUVAR _fish_abbr_master:git\x20checkout\x20master
 SETUVAR _fish_abbr_md:mkdir
+SETUVAR _fish_abbr_mysqls:mysql\x2eserver
 SETUVAR _fish_abbr_no:nodenv
 SETUVAR _fish_abbr_op:open
 SETUVAR _fish_abbr_rb:rbenv
@@ -128,7 +137,7 @@ SETUVAR _fish_abbr_rdbms:rails\x20db\x3amigrate\x3astatus
 SETUVAR _fish_abbr_rdbs:rails\x20db\x3aseed
 SETUVAR _fish_abbr_rf:reload
 SETUVAR _fish_abbr_rg:rails\x20g
-SETUVAR _fish_abbr_rm:rm\x20\x2di
+SETUVAR _fish_abbr_rm:trash\x2dput
 SETUVAR _fish_abbr_rn5:rails\x20_5\x2e2\x2e6_\x20new
 SETUVAR _fish_abbr_rr:rails\x20routes
 SETUVAR _fish_abbr_rs:rails\x20server
@@ -151,6 +160,7 @@ SETUVAR _fish_abbr_trp:\x20tree\x20\x7c\x20peco
 SETUVAR _fish_abbr_tsc:tmux\x20source\x20\x7e/\x2etmux\x2econf
 SETUVAR _fish_abbr_v:vim
 SETUVAR _fish_abbr_vdf:vimdiff
+SETUVAR _fish_abbr_vf:vim\x20\x7e/\x2econfig/fish/config\x2efish
 SETUVAR _fish_abbr_vi:vim
 SETUVAR _fish_abbr_vr:vim\x20\x7e/\x2evimrc
 SETUVAR _fisher_0rax_2F_fish_2D_bd_files:/Users/yamadatakatoshi/\x2econfig/fish/functions/bd\x2efish\x1e/Users/yamadatakatoshi/\x2econfig/fish/functions/uninstall\x2efish\x1e/Users/yamadatakatoshi/\x2econfig/fish/completions/bd\x2efish
