@@ -13,14 +13,22 @@ nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" 括弧
+" 補完
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
+imap < <><LEFT>
 
 " ペストモード
-nnoremap pt :set paste<CR>
-nnoremap np :set nopaste<CR>
+" なお、ptでpasteしてくれる
+nnoremap pa :set paste<CR>
+nnoremap npa :set nopaste<CR>
+
+nnoremap <C-]> g<C-]>
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 "----------------------------------------
 " 汎用
@@ -175,7 +183,8 @@ set shiftwidth=2
 
 " コピペの行制御
 " 常時pasteモードにする
-set paste
+" 明示的にすることに変更
+" set paste
 
 " Turn off paste mode when leaving insert
 " https://archive.craftz.dog/blog.odoruinu.net/2014/01/29/how-to-turn-off-paste-mode-when-becoming-normal-mode-on-vim/index.html
@@ -225,19 +234,23 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup = 1
+
 " 色の差分を1%に抑える
 let g:indent_guides_color_change_percent = 1
+
 " インデント部分のどれだけ分を背景色を変えるか指定 1文字に変更
 let g:indent_guides_guide_size = 1
+
 " 色を変更
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
 " 可視化を行う階層を指定
 let g:indent_guides_start_level = 2
+
 " 無効にするファイル郡を指定
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-
 
 "Plug 'Yggdroot/indentLine'
 
@@ -247,8 +260,22 @@ Plug 'vim-scripts/AnsiEsc.vim'
 " 行末の半角スペースを可視化
 Plug 'bronson/vim-trailing-whitespace'
 
-call plug#end()
+" lint/rubocop
+Plug 'dense-analysis/ale'
 
+let g:ale_linters = {
+\   'ruby': ['rubocop'],
+\}
+let g:ale_linters_explicit = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_fix_on_save = 1
+
+" slim
+Plug 'slim-template/vim-slim'
+
+" - これより上に記述しないと正しくプラグインがインストールされない
+call plug#end()
 "----------------------------------------
 " unite.vimの設定
 "----------------------------------------
@@ -345,3 +372,12 @@ imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
 """"""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""
+" 永続的Undoを有効にする
+" 事前に mkdir -p ~/.vim/undoする必要がある
+""""""""""""""""""""""""""""""
+if has('persistent_undo')
+  set undodir=~/.vim/undo
+  set undofile
+endif

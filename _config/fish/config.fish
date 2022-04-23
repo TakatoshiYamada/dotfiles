@@ -17,12 +17,15 @@ starship init fish | source
 ## nodenv
 eval (nodenv init - | source)
 
-## cd後にls 
-function cd 
+## cd後にls
+function cd
     builtin cd $argv; and exa
 end
 
-## tmux
+set -gx CDPATH $CDPATH . ~ $HOME/projects
+
+# tmux
+# 拾い物
 function attach_tmux_session_if_needed
     set ID (tmux list-sessions)
     if test -z "$ID"
@@ -39,6 +42,6 @@ function attach_tmux_session_if_needed
     end
 end
 
-if test -z $TMUX 
+if test -z $TMUX
     attach_tmux_session_if_needed
 end
