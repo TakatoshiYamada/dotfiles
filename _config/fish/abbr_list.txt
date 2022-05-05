@@ -1,0 +1,40 @@
+abbr -a -U -- aba 'abbr -a'
+abbr -a -U -- abe 'abbr -e'
+abbr -a -U -- abh 'abbr -h'
+abbr -a -U -- abr 'abbr -r'
+abbr -a -U -- abs 'abbr -s | peco'
+abbr -a -U -- absw 'abbr -s > ~/dotfiles/_config/fish/abbr_list.txt'
+abbr -a -U -- be 'bundle exec'
+abbr -a -U -- berdb 'bundle exec rails db:'
+abbr -a -U -- bers 'bundle exec rails s'
+abbr -a -U -- bi 'bundle install'
+abbr -a -U -- bs 'brew services'
+abbr -a -U -- bsl 'brew services list'
+abbr -a -U -- bspgstart 'brew services start postgresql'
+abbr -a -U -- bspgstop 'brew services stop postgresql'
+abbr -a -U -- bsspg 'brew services start postgresql'
+abbr -a -U -- bsstart 'brew services start postgresql'
+abbr -a -U -- bsstop 'brew services stop postgresql'
+abbr -a -U -- bu bundle
+abbr -a -U -- ex exit
+abbr -a -U -- ga 'git add'
+abbr -a -U -- gb 'git branch'
+abbr -a -U -- gcl 'git clone'
+abbr -a -U -- gclone 'git clone'
+abbr -a -U -- gcm 'git commit -m'
+abbr -a -U -- gco 'git checkout'
+abbr -a -U -- gcob 'git checkout -b'
+abbr -a -U -- gl 'git log'
+abbr -a -U -- gpull 'git pull'
+abbr -a -U -- gpush 'git push'
+abbr -a -U -- grv 'git remote -v'
+abbr -a -U -- gs 'git status'
+abbr -a -U -- md mkdir
+abbr -a -U -- op open
+abbr -a -U -- pgstart 'brew services start postgresql'
+abbr -a -U -- pgstop 'brew services stop postgresql'
+abbr -a -U -- ps psql
+abbr -a -U -- rb rbenv
+abbr -a -U -- rbv 'rbenv versions'
+abbr -a -U -- tr tree
+abbr -a -U -- vr 'vim ~/.vimrc'
