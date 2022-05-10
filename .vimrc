@@ -199,15 +199,6 @@ autocmd InsertLeave * set nopaste
 
 call plug#begin('~/.vim/plugged')
 
-" ファイルオープンを便利に
-"Plug 'Shougo/unite.vim'
-
-" Unite.vimで最近使ったファイルを表示できるようにする
-"Plug 'Shougo/neomru.vim'
-
-" ファイルをtree表示してくれる
-Plug 'scrooloose/nerdtree'
-
 " Rails向けのコマンドを提供する
 Plug 'tpope/vim-rails'
 
@@ -274,33 +265,25 @@ let g:ale_fix_on_save = 1
 " slim
 Plug 'slim-template/vim-slim'
 
-" - これより上に記述しないと正しくプラグインがインストールされない
+" coc.nvimにおけるruby code completion
+" インストール後に下記コマンド実行
+" :CocInstall coc-solargraph
+" また、functionを追加
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+
+" - 重要！: これより上に記述しないと正しくプラグインがインストールされない
 call plug#end()
-"----------------------------------------
-" unite.vimの設定
-"----------------------------------------
-
-" 入力モードで開始する
-"let g:unite_enable_start_insert=1
-" " バッファ一覧
-"noremap <C-P> :Unite buffer<CR>
-" " ファイル一覧
-"noremap <C-N> :Unite -buffer-name=file file<CR>
-" " 最近使ったファイルの一覧
-"noremap <C-Z> :Unite file_mru<CR>
-" " sourcesを「今開いているファイルのディレクトリ」とする
-"noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
-" " ウィンドウを分割して開く
-"au FileType unite nnoremap <silent> <buffer> <expr> <C-P>  unite#do_action('split')
-"au FileType unite inoremap <silent> <buffer> <expr> <C-P>  unite#do_action('split')
-" " ウィンドウを縦に分割して開く
-"au FileType unite nnoremap <silent> <buffer> <expr> <C-L>  unite#do_action('vsplit')
-"au FileType unite inoremap <silent> <buffer> <expr> <C-L>  unite#do_action('vsplit')
-" " ESCキーを2回押すと終了する
-"au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-"au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-
-" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/-vimrc-sample
 
 """"""""""""""""""""""""""""""
 " 挿入モード時、ステータスラインの色を変更
