@@ -14,8 +14,7 @@ nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " 補完
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
+"inoremap ' ''<LEFT>
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
@@ -202,8 +201,18 @@ call plug#begin('~/.vim/plugged')
 " Rails向けのコマンドを提供する
 Plug 'tpope/vim-rails'
 
+" Ruby向けの追加plugin
+" vim-ctagsで利用
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rbenv'
+Plug 'tpope/vim-bundler'
+
 " Ruby向けにendを自動挿入してくれる
 Plug 'tpope/vim-endwise'
+
+" endをカラフルにしよう
+Plug 'vim-scripts/rainbow-end'
 
 " コメントON/OFFを手軽に実行
 "Shift+Vで対象の範囲を選択
