@@ -208,6 +208,10 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-bundler'
 
+" Vue向けの追加pluginと設定
+Plug 'posva/vim-vue'
+autocmd FileType vue syntax sync fromstart
+
 " Ruby向けにendを自動挿入してくれる
 Plug 'tpope/vim-endwise'
 
